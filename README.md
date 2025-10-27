@@ -34,6 +34,7 @@ MergeMarket is a full-stack web application that bridges the gap between local m
 - 💻 Git & GitHub — Version Control
 
 # 🏗️ Project Structure
+```
 MergeMarket/
 │
 ├── frontend/                # React frontend
@@ -55,6 +56,7 @@ MergeMarket/
 ├── .env                     # Environment variables
 ├── README.md
 └── package.json
+```
 
 # 🧠 API Endpoints
 ### **Products**
