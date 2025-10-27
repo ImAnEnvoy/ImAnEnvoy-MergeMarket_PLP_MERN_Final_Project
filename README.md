@@ -91,6 +91,7 @@ MergeMarket/
 # 🧑‍💻 Author
 ### Ayoola Ezekiel Oluwafemi
 Full Stack Developer (in training) at Power Learn Project, July Cohort 2025
+
 📍 Asaba, Delta State Nigeria
 #### WhatsApp **+2348179264472 (ezekieloluwafemiayoola@mail.com)**
 
