@@ -20,6 +20,8 @@ export function ContentGrid(){
         <div className="content-row"></div>
         <div className="content-row"></div>
         <div className="content-row"></div>
+        <div className="content-row"></div>
+        <div className="content-row"></div>
       </div>
     </>
   );
