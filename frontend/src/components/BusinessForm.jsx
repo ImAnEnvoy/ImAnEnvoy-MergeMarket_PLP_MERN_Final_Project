@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./BusinessForm.css";
 
+import { Header } from '../components/Header';
+import { Nav } from '../components/Nav';
+import { Sidebar } from '../components/Sidebar';
+
 const BusinessForm = () => {
   const [formData, setFormData] = useState({
     businessName: "",
@@ -65,89 +69,94 @@ const BusinessForm = () => {
   };
 
   return (
-    <div className="content-grid">
-      <form className="business-form" onSubmit={handleSubmit}>
-        <h2>Register Your Business</h2>
+    <>
+      <Header />
+      <Nav />
+      <Sidebar />
+      <div className="content-grid">
+        <form className="business-form" onSubmit={handleSubmit}>
+          <h2>Register Your Business</h2>
 
-        <div className="form-group">
-          <label htmlFor="businessName">Business Name</label>
-          <input
-            type="text"
-            id="businessName"
-            name="businessName"
-            placeholder="Enter business name"
-            value={formData.businessName}
-            onChange={handleChange}
-            required
-          />
-        </div>
+          <div className="form-group">
+            <label htmlFor="businessName">Business Name</label>
+            <input
+              type="text"
+              id="businessName"
+              name="businessName"
+              placeholder="Enter business name"
+              value={formData.businessName}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="category">Category</label>
-          <select
-            id="category"
-            name="category"
-            value={formData.category}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select category</option>
-            <option value="Real Estate">Real Estate</option>
-            <option value="Engineering">Engineering</option>
-            <option value="Plumbing">Plumbing</option>
-            <option value="Mechanics">Mechanics</option>
-            <option value="Carpenter">Carpenter</option>
-          </select>
-        </div>
+          <div className="form-group">
+            <label htmlFor="category">Category</label>
+            <select
+              id="category"
+              name="category"
+              value={formData.category}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select category</option>
+              <option value="Real Estate">Real Estate</option>
+              <option value="Engineering">Engineering</option>
+              <option value="Plumbing">Plumbing</option>
+              <option value="Mechanics">Mechanics</option>
+              <option value="Carpenter">Carpenter</option>
+            </select>
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="image">Add Image</label>
-          <input
-            type="file"
-            id="image"
-            name="image"
-            accept="image/*"
-            onChange={handleChange}
-            required
-          />
-          {preview && (
-            <div className="image-preview">
-              <img src={preview} alt="Preview" />
-            </div>
-          )}
-        </div>
+          <div className="form-group">
+            <label htmlFor="image">Add Image</label>
+            <input
+              type="file"
+              id="image"
+              name="image"
+              accept="image/*"
+              onChange={handleChange}
+              required
+            />
+            {preview && (
+              <div className="image-preview">
+                <img src={preview} alt="Preview" />
+              </div>
+            )}
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="state">State</label>
-          <input
-            type="text"
-            id="state"
-            name="state"
-            placeholder="Enter state"
-            value={formData.state}
-            onChange={handleChange}
-            required
-          />
-        </div>
+          <div className="form-group">
+            <label htmlFor="state">State</label>
+            <input
+              type="text"
+              id="state"
+              name="state"
+              placeholder="Enter state"
+              value={formData.state}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="city">City</label>
-          <input
-            type="text"
-            id="city"
-            name="city"
-            placeholder="Enter city"
-            value={formData.city}
-            onChange={handleChange}
-            required
-          />
-        </div>
+          <div className="form-group">
+            <label htmlFor="city">City</label>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              placeholder="Enter city"
+              value={formData.city}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <button type="submit" className="submit-btn" disabled={loading}>
-          {loading ? "Submitting..." : "Submit"}
-        </button>
-      </form>
-    </div>
+          <button type="submit" className="submit-btn" disabled={loading}>
+            {loading ? "Submitting..." : "Submit"}
+          </button>
+        </form>
+      </div>
+    </>
   );
 };
 

@@ -290,8 +290,8 @@ header {
 
 @media (max-width: 100px) {
   .content-grid {
-  grid-template-columns: 1fr;
-  margin-left: 0;
+    grid-template-columns: 1fr;
+    margin-left: 0;
   }
 }
 

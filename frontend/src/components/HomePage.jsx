@@ -1,11 +1,16 @@
 
-import MarketRankIcon from '../assets/market-rank-icon.png'
+import { Header } from '../components/Header';
+import { Nav } from '../components/Nav';
+import { Sidebar } from '../components/Sidebar';
 
-export function ContentGrid(){
+export function HomePage(){
   return(
     <>
+      <Header />
+      <Nav />
+      <Sidebar />
       <div className="content-header">
-        <img src={MarketRankIcon} alt="Market Rank Icon" />
+        {/* <img src="/assets/marketRankIcon.png" alt="Market Rank Icon" /> */}
         <div>Market Board Leaders</div>
       </div>
 
