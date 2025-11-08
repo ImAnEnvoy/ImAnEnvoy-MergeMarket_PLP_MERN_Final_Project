@@ -2,6 +2,7 @@
 import { Header } from '../components/Header';
 import { Nav } from '../components/Nav';
 import { Sidebar } from '../components/Sidebar';
+import MarketRankIcon from '../assets/marketRankIcon.png'
 
 export function HomePage(){
   return(
@@ -10,7 +11,7 @@ export function HomePage(){
       <Nav />
       <Sidebar />
       <div className="content-header">
-        {/* <img src="/assets/marketRankIcon.png" alt="Market Rank Icon" /> */}
+        <img src={MarketRankIcon} alt="Market Rank Icon" />
         <div>Market Board Leaders</div>
       </div>
 

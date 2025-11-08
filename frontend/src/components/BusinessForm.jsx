@@ -5,6 +5,7 @@ import "./BusinessForm.css";
 import { Header } from '../components/Header';
 import { Nav } from '../components/Nav';
 import { Sidebar } from '../components/Sidebar';
+import moneyShop from '../assets/moneyShop.png';
 
 const BusinessForm = () => {
   const [formData, setFormData] = useState({
@@ -73,6 +74,10 @@ const BusinessForm = () => {
       <Header />
       <Nav />
       <Sidebar />
+      <div className="content-header">
+        <img src={moneyShop} />
+        <div>Market Board Leaders</div>
+      </div>
       <div className="content-grid">
         <form className="business-form" onSubmit={handleSubmit}>
           <h2>Register Your Business</h2>
