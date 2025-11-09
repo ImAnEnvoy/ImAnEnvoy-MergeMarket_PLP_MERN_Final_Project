@@ -1,4 +1,4 @@
-.content-grid {
+.form-content-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
@@ -6,16 +6,19 @@
   position: relative;
   top: 180px;
   padding: 20px;
-  margin-left: 180px;
+  /* margin-left: 180px; */
 }
 
 .business-form {
+  display: flex;
+  flex-direction: column;
   background-color: #f1f1f1;
   padding: 30px;
   border-radius: 8px;
-  max-width: 600px;
-  margin: auto;
+  /* max-width: 600px; */
+  /* margin: auto; */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* margin-left: 180px; */
 }
 
 .business-form h2 {
@@ -67,4 +70,18 @@
   height: auto;
   border-radius: 5px;
   border: 1px solid #ccc;
+}
+
+/*  */
+@media (min-width: 1024px) {
+  .business-form {
+    margin-left: 180px;
+  }
+}
+
+/*  */
+@media (min-width: 600px) {
+  .business-form {
+    margin-left: 180px;
+  }
 }

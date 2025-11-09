@@ -78,11 +78,29 @@ const BusinessForm = () => {
         <img src={moneyShop} />
         <div>Market Board Leaders</div>
       </div>
-      <div className="content-grid">
+
+      <div className="form-content-grid">
         <form className="business-form" onSubmit={handleSubmit}>
           <h2>Register Your Business</h2>
 
           <div className="form-group">
+            <div className="form-group">
+              <label htmlFor="image">Add Image</label>
+              <input
+                type="file"
+                id="image"
+                name="image"
+                accept="image/*"
+                onChange={handleChange}
+                required
+              />
+              {preview && (
+                <div className="image-preview">
+                  <img src={preview} alt="Preview" />
+                </div>
+              )}
+            </div>
+
             <label htmlFor="businessName">Business Name</label>
             <input
               type="text"
@@ -111,23 +129,6 @@ const BusinessForm = () => {
               <option value="Mechanics">Mechanics</option>
               <option value="Carpenter">Carpenter</option>
             </select>
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="image">Add Image</label>
-            <input
-              type="file"
-              id="image"
-              name="image"
-              accept="image/*"
-              onChange={handleChange}
-              required
-            />
-            {preview && (
-              <div className="image-preview">
-                <img src={preview} alt="Preview" />
-              </div>
-            )}
           </div>
 
           <div className="form-group">
