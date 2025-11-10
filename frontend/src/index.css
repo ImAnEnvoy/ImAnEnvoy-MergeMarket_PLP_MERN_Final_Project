@@ -199,6 +199,10 @@ header {
   margin-left: 5px;
 }
 
+.link-menu {
+  text-decoration: none;
+}
+
 /* =====================
     CONTENT GRID
 ====================== */
@@ -215,9 +219,17 @@ header {
 }
 
 .content-row {
-  height: 200px;
-  background-color: rgb(239, 238, 238);
+  height: 270px;
+  /* background-color: rgb(239, 238, 238); */
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+}
+
+.content-row:hover{
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.126);
 }
 
 /* =====================
@@ -285,7 +297,7 @@ header {
   }
 
   .content-row {
-    height: 180px;
+    height: 280px;
   }
 }
 
@@ -297,8 +309,54 @@ header {
 }
 
 @media (max-width: 700px) {
-    .content-grid {
+  .content-grid {
     grid-template-columns: 1fr 1fr;
     margin-left: 0;
   }
+
+  .content-row {
+    height: 280px;
+  }
 }
+
+.thumbnail-preview {
+  width: 100%
+}
+
+.info {
+  padding: 10px;
+}
+
+.title, 
+.job-specialization,
+.availability-level {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: rgb(41, 40, 40);
+}
+
+.decription-label {
+  font-size: 11px;
+  color: rgb(84, 84, 84);
+}
+
+.contact-btn {
+  background-color: #222645;
+  color: white;
+  font-size: 16px;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  margin-top: 10px;
+  opacity: 0;
+}
+
+.contact-btn:hover{
+  opacity: 1;
+}
+
+

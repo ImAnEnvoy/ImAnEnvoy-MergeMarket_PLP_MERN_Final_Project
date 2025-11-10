@@ -81,7 +81,7 @@ const BusinessForm = () => {
 
       <div className="form-content-grid">
         <form className="business-form" onSubmit={handleSubmit}>
-          <h2>Register Your Business</h2>
+          <h2>Upload Business</h2>
 
           <div className="form-group">
             <div className="form-group">
