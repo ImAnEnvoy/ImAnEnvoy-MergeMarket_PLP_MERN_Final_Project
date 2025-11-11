@@ -76,12 +76,12 @@ const BusinessForm = () => {
       <Sidebar />
       <div className="content-header">
         <img src={moneyShop} />
-        <div>Market Board Leaders</div>
+        <div>Upload Your Business</div>
       </div>
 
       <div className="form-content-grid">
         <form className="business-form" onSubmit={handleSubmit}>
-          <h2>Upload Business</h2>
+          {/* <h2>Upload Business</h2> */}
 
           <div className="form-group">
             <div className="form-group">

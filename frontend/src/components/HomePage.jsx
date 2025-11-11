@@ -30,20 +30,115 @@ export function HomePage(){
             <p className='decription-label'>AVAILABILITY:</p>
             <p className='availability-level'>Monday - Friday</p>
           </div>
-            <button type="submit" className="contact-btn">Contact</button>
+          <button type="submit" className="contact-btn">Contact</button>
+        </div>
+        
+        <div className="content-row">
+          <div className='thumbnail'>
+            <img className='thumbnail-preview' src={Thumbnail} alt="" />
+          </div>
+          <div className="info">
+            <p className='decription-label'>NAME:</p>
+            <p className='title'>ABC Mechanical Enterprise</p>
+            <p className='decription-label'>SPECIALIZATION:</p>
+            <p className='job-specialization'>Electrical & Electronic</p>
+            <p className='decription-label'>AVAILABILITY:</p>
+            <p className='availability-level'>Monday - Friday</p>
+          </div>
+          <button type="submit" className="contact-btn">Contact</button>
+        </div>
+        
+        <div className="content-row">
+          <div className='thumbnail'>
+            <img className='thumbnail-preview' src={Thumbnail} alt="" />
+          </div>
+          <div className="info">
+            <p className='decription-label'>NAME:</p>
+            <p className='title'>ABC Mechanical Enterprise</p>
+            <p className='decription-label'>SPECIALIZATION:</p>
+            <p className='job-specialization'>Electrical & Electronic</p>
+            <p className='decription-label'>AVAILABILITY:</p>
+            <p className='availability-level'>Monday - Friday</p>
+          </div>
+          <button type="submit" className="contact-btn">Contact</button>
+        </div>               
+
+        <div className="content-row">
+          <div className='thumbnail'>
+            <img className='thumbnail-preview' src={Thumbnail} alt="" />
+          </div>
+          <div className="info">
+            <p className='decription-label'>NAME:</p>
+            <p className='title'>ABC Mechanical Enterprise</p>
+            <p className='decription-label'>SPECIALIZATION:</p>
+            <p className='job-specialization'>Electrical & Electronic</p>
+            <p className='decription-label'>AVAILABILITY:</p>
+            <p className='availability-level'>Monday - Friday</p>
+          </div>
+
+          <button type="submit" className="contact-btn">Contact</button>
         </div>
 
-        <div className="content-row"></div>
-        <div className="content-row"></div>
-        <div className="content-row"></div>
-        <div className="content-row"></div>
-        <div className="content-row"></div>
-        <div className="content-row"></div>
-        <div className="content-row"></div>
-        <div className="content-row"></div>
-        <div className="content-row"></div>
-        <div className="content-row"></div>
-        <div className="content-row"></div>
+        <div className="content-row">
+          <div className='thumbnail'>
+            <img className='thumbnail-preview' src={Thumbnail} alt="" />
+          </div>
+          <div className="info">
+            <p className='decription-label'>NAME:</p>
+            <p className='title'>ABC Mechanical Enterprise</p>
+            <p className='decription-label'>SPECIALIZATION:</p>
+            <p className='job-specialization'>Electrical & Electronic</p>
+            <p className='decription-label'>AVAILABILITY:</p>
+            <p className='availability-level'>Monday - Friday</p>
+          </div>
+          <button type="submit" className="contact-btn">Contact</button>
+        </div>
+        
+        <div className="content-row">
+          <div className='thumbnail'>
+            <img className='thumbnail-preview' src={Thumbnail} alt="" />
+          </div>
+          <div className="info">
+            <p className='decription-label'>NAME:</p>
+            <p className='title'>ABC Mechanical Enterprise</p>
+            <p className='decription-label'>SPECIALIZATION:</p>
+            <p className='job-specialization'>Electrical & Electronic</p>
+            <p className='decription-label'>AVAILABILITY:</p>
+            <p className='availability-level'>Monday - Friday</p>
+          </div>
+          <button type="submit" className="contact-btn">Contact</button>
+        </div>
+        
+        <div className="content-row">
+          <div className='thumbnail'>
+            <img className='thumbnail-preview' src={Thumbnail} alt="" />
+          </div>
+          <div className="info">
+            <p className='decription-label'>NAME:</p>
+            <p className='title'>ABC Mechanical Enterprise</p>
+            <p className='decription-label'>SPECIALIZATION:</p>
+            <p className='job-specialization'>Electrical & Electronic</p>
+            <p className='decription-label'>AVAILABILITY:</p>
+            <p className='availability-level'>Monday - Friday</p>
+          </div>
+          <button type="submit" className="contact-btn">Contact</button>
+        </div>               
+
+        <div className="content-row">
+          <div className='thumbnail'>
+            <img className='thumbnail-preview' src={Thumbnail} alt="" />
+          </div>
+          <div className="info">
+            <p className='decription-label'>NAME:</p>
+            <p className='title'>ABC Mechanical Enterprise</p>
+            <p className='decription-label'>SPECIALIZATION:</p>
+            <p className='job-specialization'>Electrical & Electronic</p>
+            <p className='decription-label'>AVAILABILITY:</p>
+            <p className='availability-level'>Monday - Friday</p>
+          </div>
+          <button type="submit" className="contact-btn">Contact</button>
+        </div>
+               
       </div>
     </>
   );
