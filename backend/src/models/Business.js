@@ -12,4 +12,6 @@ const businessSchema = new mongoose.Schema(
   { timestamps }
 );
 
-export default mongoose.model("Business", businessSchema);
+const mergeMarket = mongoose.model("Business", businessSchema);
+
+module.exports = mergeMarket;
