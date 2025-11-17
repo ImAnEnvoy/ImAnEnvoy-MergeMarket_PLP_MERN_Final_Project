@@ -45,9 +45,14 @@ const BusinessForm = () => {
       });
 
       // Send to backend API (adjust the URL as needed)
-      const response = await axios.post("/api/businesses", data, {
+      // const response = await axios.post("/api/businesses", data, {
+      //   headers: { "Content-Type": "multipart/form-data" },
+      // });
+
+      const response = await axios.post("http://localhost:5000/api/businesses", data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
+
 
       alert("Business submitted successfully!");
       console.log("Server Response:", response.data);

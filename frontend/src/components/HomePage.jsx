@@ -30,7 +30,7 @@ export function HomePage(){
             <p className='decription-label'>AVAILABILITY:</p>
             <p className='availability-level'>Monday - Friday</p>
           </div>
-          <button type="submit" className="contact-btn">Contact</button>
+          <button type="submit" className="contact-btn">Connect</button>
         </div>
         
         <div className="content-row">
@@ -45,7 +45,7 @@ export function HomePage(){
             <p className='decription-label'>AVAILABILITY:</p>
             <p className='availability-level'>Monday - Friday</p>
           </div>
-          <button type="submit" className="contact-btn">Contact</button>
+          <button type="submit" className="contact-btn">Connet</button>
         </div>
         
         <div className="content-row">
@@ -60,7 +60,7 @@ export function HomePage(){
             <p className='decription-label'>AVAILABILITY:</p>
             <p className='availability-level'>Monday - Friday</p>
           </div>
-          <button type="submit" className="contact-btn">Contact</button>
+          <button type="submit" className="contact-btn">Connect</button>
         </div>               
 
         <div className="content-row">
@@ -76,7 +76,7 @@ export function HomePage(){
             <p className='availability-level'>Monday - Friday</p>
           </div>
 
-          <button type="submit" className="contact-btn">Contact</button>
+          <button type="submit" className="contact-btn">Connect</button>
         </div>
 
         <div className="content-row">
