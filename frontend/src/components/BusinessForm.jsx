@@ -15,7 +15,7 @@ const BusinessForm = () => {
     city: "",
     image: null,
   });
-
+  
   const [preview, setPreview] = useState(null);
   const [loading, setLoading] = useState(false);
 
