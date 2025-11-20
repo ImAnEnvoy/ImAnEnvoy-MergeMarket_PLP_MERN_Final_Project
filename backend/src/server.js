@@ -12,14 +12,16 @@ const app = express();
 // Connect to DB (non-fatal)
 connectDB();
 
-const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || 'http://localhost:5174';
-app.use(cors({ origin: ALLOWED_ORIGIN }));
+// Allow multiple dev origins (comma-separated in .env) and default to common Vite port
+const allowedOrigins = (process.env.ALLOWED_ORIGIN || 'http://localhost:5173').split(',').map(s => s.trim());
+app.use(cors({ origin: allowedOrigins }));
 app.use(express.json());
 
 // static uploads
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+// Serve uploaded files from backend/uploads (multer writes to backend/uploads)
+app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
 app.get('/', (req, res) => res.send('MergeMarket API is running...'));
 app.use('/api/mergeMarket', businessRouter);
