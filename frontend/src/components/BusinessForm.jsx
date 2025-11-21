@@ -58,7 +58,7 @@ const BusinessForm = () => {
       });
 
       const res = await axios.post(
-        "http://localhost:5000/api/mergeMarket/businesses",
+        "http://localhost:5000/api/mergeMarket",
         data // no headers needed, axios handles FormData content-type
       );
 
@@ -76,7 +76,7 @@ const BusinessForm = () => {
       setPreview(null);
     } catch (error) {
       console.error("Upload error:", error);
-      setMessage("❌ Something went wrong. Please try again.");
+      setMessage("❌Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
