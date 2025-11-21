@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-
-import { Header } from "../components/Header";
-import { Nav } from "../components/Nav";
-import { Sidebar } from "../components/Sidebar";
-
-import moneyShop from "../assets/moneyShop.png";
 import "./BusinessForm.css";
+
+import { Header } from '../components/Header';
+import { Nav } from '../components/Nav';
+import { Sidebar } from '../components/Sidebar';
+import moneyShop from '../assets/moneyShop.png';
 
 const BusinessForm = () => {
   const [formData, setFormData] = useState({
@@ -19,51 +18,44 @@ const BusinessForm = () => {
 
   const [preview, setPreview] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
 
-  // Cleanup preview object to prevent memory leaks
-  useEffect(() => {
-    return () => {
-      if (preview) URL.revokeObjectURL(preview);
-    };
-  }, [preview]);
-
-  // Handle input changes
+  // Handle text/select/image inputs
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-
-    if (files && files.length > 0) {
+    if (files) {
       const file = files[0];
-      setFormData((prev) => ({ ...prev, image: file }));
+      setFormData((prev) => ({ ...prev, [name]: file }));
       setPreview(URL.createObjectURL(file));
-      return;
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
     }
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
   };
 
-  // Submit form
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    setMessage("");
 
     try {
+      setLoading(true);
+
+      // Prepare form data for file upload
       const data = new FormData();
-      Object.entries(formData).forEach(([key, value]) => {
-        data.append(key, value);
+      Object.keys(formData).forEach((key) => {
+        data.append(key, formData[key]);
       });
 
-      const res = await axios.post(
-        "http://localhost:5000/api/mergeMarket",
-        data // no headers needed, axios handles FormData content-type
-      );
+      // Send to backend API (adjust the URL as needed)
+      // const response = await axios.post("/api/businesses", data, {
+      //   headers: { "Content-Type": "multipart/form-data" },
+      // });
 
-      setMessage("Business uploaded successfully!");
-      console.log("Server Response:", res.data);
+      const response = await axios.post("http://localhost:5000/api/mergeMarket", data, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
+
+      alert("Business submitted successfully!");
+      console.log("Server Response:", response.data);
 
       // Reset form
       setFormData({
@@ -75,8 +67,8 @@ const BusinessForm = () => {
       });
       setPreview(null);
     } catch (error) {
-      console.error("Upload error:", error);
-      setMessage("❌Something went wrong. Please try again.");
+      console.error("Error submitting form:", error);
+      alert("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -87,54 +79,45 @@ const BusinessForm = () => {
       <Header />
       <Nav />
       <Sidebar />
-
       <div className="content-header">
-        <img src={moneyShop} alt="Shop" />
+        <img src={moneyShop} />
         <div>Upload Your Business</div>
       </div>
 
       <div className="form-content-grid">
         <form className="business-form" onSubmit={handleSubmit}>
-          
-          {message && (
-            <div className={`alert ${message.startsWith("❌") ? "error" : "success"}`}>
-              {message}
+          {/* <h2>Upload Business</h2> */}
+
+          <div className="form-group">
+            <div className="form-group">
+              <label htmlFor="image">Add Image</label>
+              <input
+                type="file"
+                id="image"
+                name="image"
+                accept="image/*"
+                onChange={handleChange}
+                required
+              />
+              {preview && (
+                <div className="image-preview">
+                  <img src={preview} alt="Preview" />
+                </div>
+              )}
             </div>
-          )}
 
-          {/* Image Upload */}
-          <div className="form-group">
-            <label htmlFor="image">Business Image</label>
-            <input
-              type="file"
-              id="image"
-              name="image"
-              accept="image/*"
-              onChange={handleChange}
-              required
-            />
-            {preview && (
-              <div className="image-preview">
-                <img src={preview} alt="Preview" />
-              </div>
-            )}
-          </div>
-
-          {/* Business Name */}
-          <div className="form-group">
             <label htmlFor="businessName">Business Name</label>
             <input
               type="text"
               id="businessName"
               name="businessName"
+              placeholder="Enter business name"
               value={formData.businessName}
               onChange={handleChange}
-              placeholder="Enter business name"
               required
             />
           </div>
 
-          {/* Category */}
           <div className="form-group">
             <label htmlFor="category">Category</label>
             <select
@@ -153,35 +136,32 @@ const BusinessForm = () => {
             </select>
           </div>
 
-          {/* State */}
           <div className="form-group">
             <label htmlFor="state">State</label>
             <input
               type="text"
               id="state"
               name="state"
+              placeholder="Enter state"
               value={formData.state}
               onChange={handleChange}
-              placeholder="Enter state"
               required
             />
           </div>
 
-          {/* City */}
           <div className="form-group">
             <label htmlFor="city">City</label>
             <input
               type="text"
               id="city"
               name="city"
+              placeholder="Enter city"
               value={formData.city}
               onChange={handleChange}
-              placeholder="Enter city"
               required
             />
           </div>
 
-          {/* Submit Button */}
           <button type="submit" className="submit-btn" disabled={loading}>
             {loading ? "Submitting..." : "Submit"}
           </button>

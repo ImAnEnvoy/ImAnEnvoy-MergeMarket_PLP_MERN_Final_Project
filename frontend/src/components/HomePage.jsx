@@ -1,23 +1,29 @@
-import { Header } from '../components/Header';
-import { Nav } from '../components/Nav';
-import { Sidebar } from '../components/Sidebar';
-import MarketRankIcon from '../assets/marketRankIcon.png';
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export function HomePage() {
-  const [businesses, setBusinesses] = useState([]);
+import { Header } from '../components/Header';
+import { Nav } from '../components/Nav';
+import { Sidebar } from '../components/Sidebar';
 
+import MarketRankIcon from '../assets/marketRankIcon.png';
+
+export function HomePage() {
+
+  const [businesses, setBusinesses] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch businesses from backend
   useEffect(() => {
-    const fetchBusinesses = async () => {
+    async function fetchBusinesses() {
       try {
-        const res = await axios.get("http://localhost:5000/api/mergeMarket");
-        setBusinesses(res.data);
-      } catch (error) {
-        console.log("Error fetching businesses:", error);
+        const response = await axios.get("http://localhost:5000/api/mergeMarket");
+        setBusinesses(response.data.data); // data from backend
+      } catch (err) {
+        console.error("Error fetching businesses:", err);
+      } finally {
+        setLoading(false);
       }
-    };
+    }
 
     fetchBusinesses();
   }, []);
@@ -33,39 +39,48 @@ export function HomePage() {
         <div>Market Board Leaders</div>
       </div>
 
-          {businesses.length === 0 ? (
-            <p className='business-grid-gray-text'>No business registered yet.</p>
-          ) : (
-        <div className="content-grid">
-          {businesses.map((biz) => (
-            <div key={biz._id} className="content-row">
+      <div className="content-grid">
 
-              {biz.imagePath && (
-                <div className='thumbnail'>
-                  <img 
-                    className='thumbnail-preview' 
-                    src={`http://localhost:5000/uploads/${biz.imagePath}`} 
-                    alt={biz.businessName} 
-                  />
-                </div>
-              )}
+        {/* Loading */}
+        {loading && (
+          <p style={{ textAlign: "center", padding: "20px" }}>Loading...</p>
+        )}
 
-              <div className="info">
-                <p className='decription-label'>NAME:</p>
-                <p className='title'>{biz.businessName}</p>
+        {/* No businesses */}
+        {!loading && businesses.length === 0 && (
+          <p style={{ textAlign: "center", padding: "20px" }}>No businesses available yet</p>
+        )}
 
-                <p className='decription-label'>SPECIALIZATION:</p>
-                <p className='job-specialization'>{biz.category}</p>
+        {/* Display Businesses */}
+        {businesses.map((biz) => (
+          <div className="content-row" key={biz._id}>
 
-                <p className='decription-label'>AVAILABILITY:</p>
-                <p className='availability-level'>Monday - Friday</p>
-              </div>
-
-              <button className="contact-btn">Connect</button>
+            <div className='thumbnail'>
+              <img
+                className='thumbnail-preview'
+                src={`http://localhost:5000/uploads/${biz.image}`}
+                alt={biz.businessName}
+              />
             </div>
-          ))}
-        </div>
-      )}
+
+            <div className="info">
+              <p className='decription-label'>NAME:</p>
+              <p className='title'>{biz.businessName}</p>
+
+              <p className='decription-label'>SPECIALIZATION:</p>
+              <p className='job-specialization'>{biz.category}</p>
+
+              <p className='decription-label'>LOCATION:</p>
+              <p className='availability-level'>
+                {biz.city}, {biz.state}
+              </p>
+            </div>
+
+            <button type="button" className="contact-btn">Connect</button>
+          </div>
+        ))}
+
+      </div>
     </>
   );
 }

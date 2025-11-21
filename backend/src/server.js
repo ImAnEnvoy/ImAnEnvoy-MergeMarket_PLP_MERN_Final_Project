@@ -13,7 +13,7 @@ const app = express();
 connectDB();
 
 const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || 'http://localhost:5173';
-app.use(cors({ origin: ALLOWED_ORIGIN }));
+app.use(cors({ origin: ALLOWED_ORIGIN }));;
 app.use(express.json());
 
 // static uploads
